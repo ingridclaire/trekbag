@@ -1,11 +1,11 @@
+import { useItemsStore } from "../stores/itemsStore";
 import Button from "./Button";
 
-export default function ButtonGroup({
-  markAllAsPacked,
-  markAllAsUnpacked,
-  resetList,
-  deleteAll,
-}) {
+export default function ButtonGroup() {
+  const markAllAsPacked = useItemsStore((state) => state.markAllAsPacked);
+  const markAllAsUnpacked = useItemsStore((state) => state.markAllAsUnpacked);
+  const resetList = useItemsStore((state) => state.resetList);
+  const deleteAll = useItemsStore((state) => state.deleteAll);
   const secondaryButtons = [
     { text: "Mark all as complete", onClick: markAllAsPacked },
     { text: "Mark all as incomplete", onClick: markAllAsUnpacked },
